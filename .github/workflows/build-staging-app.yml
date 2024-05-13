@@ -2,12 +2,12 @@ name: "Build Staging App"
 on:
   push:
     branches:
-      - develop
+      - '**'
   pull_request:
     branches:
       - develop
     types:
-      - [ opened, edited, synchronize ]
+      - opened
 jobs:
   build-app:
     runs-on: ubuntu-latest
