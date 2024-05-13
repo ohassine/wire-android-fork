@@ -27,7 +27,7 @@ jobs:
         id: decode_keystore
         uses: timheuer/base64-to-file@v1.2
         with:
-          fileName: 'keystore/testwire.jks'
+          fileName: 'testwire.jks'
           encodedString: ${{ secrets.KEYSTORE_ENCODED }}
       - name: Make gradlew executable
         run: chmod +x ./gradlew
