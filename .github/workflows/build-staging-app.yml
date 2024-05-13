@@ -7,7 +7,7 @@ on:
     branches:
       - develop
     types:
-      - opened, edited, synchronize
+      - [ opened, edited, synchronize ]
 jobs:
   build-app:
     runs-on: ubuntu-latest
