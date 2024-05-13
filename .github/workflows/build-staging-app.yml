@@ -33,7 +33,7 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
       - name: build prod
-        run: ./gradlew app:bundleBetaRelease
+        run: ./gradlew app:assembleBetaRelease
         env:
           SIGNING_KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_NAME_RELEASE }}
           SIGNING_KEY_PASSWORD: ${{ secrets.KEYPWD_RELEASE }}
