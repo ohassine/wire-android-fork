@@ -72,18 +72,24 @@ fun NamedDomainObjectContainer<ApplicationProductFlavor>.createAppFlavour(
 
 android {
     val enableSigning = System.getenv("ENABLE_SIGNING").equals("TRUE", true)
+    println("enableSigning: $enableSigning")
     if (enableSigning) {
         signingConfigs {
             maybeCreate(BuildTypes.RELEASE).apply {
                 val tmpFilePath = System.getProperty("user.home") + "/work/_temp/keystore/"
                 val allFilesFromDir = File(tmpFilePath).listFiles()
-
+                println("allFilesFromDir: ${allFilesFromDir != null}")
                 if (allFilesFromDir != null) {
                     val keystoreFile = allFilesFromDir.first()
                     val newFilePath = Paths.get("keystore/wiretest.jks")
                     val newFile = newFilePath.toFile()
                     keystoreFile?.renameTo(newFile)
                 }
+                println("keystore file: ${file("keystore/wiretest.jks")}")
+                println("storePassword: ${System.getenv("KEYSTOREPWD_RELEASE")}")
+                println("keyAlias: ${System.getenv("KEYSTORE_KEY_NAME_RELEASE")}")
+                println("keyPassword: ${System.getenv("KEYPWD_RELEASE")}")
+
                 storeFile = file("keystore/wiretest.jks")
                 storePassword = System.getenv("KEYSTOREPWD_RELEASE")
                 keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
