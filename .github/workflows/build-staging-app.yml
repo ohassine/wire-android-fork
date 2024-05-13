@@ -38,6 +38,11 @@ jobs:
           SIGNING_KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_NAME_RELEASE }}
           SIGNING_KEY_PASSWORD: ${{ secrets.KEYPWD_RELEASE }}
           SIGNING_STORE_PASSWORD: ${{ secrets.KEYSTOREPWD_RELEASE }}
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: Build Artifacts
+          path: app/build/outputs/
 #      - name: Build beta flavour
 #        env:
 #          GITHUB_USER: ${{ github.actor }}
