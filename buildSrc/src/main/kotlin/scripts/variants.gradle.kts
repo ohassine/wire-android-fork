@@ -28,6 +28,7 @@ import customization.Features
 import customization.overrideResourcesForAllFlavors
 import flavor.FlavorDimensions
 import flavor.ProductFlavors
+import java.nio.file.Paths
 
 plugins { id("com.android.application") apply false }
 // DO NOT USE CAPITAL LETTER FOR THE BUILD TYPE NAME OR JENKINS WILL BE MAD
@@ -74,7 +75,16 @@ android {
     if (enableSigning) {
         signingConfigs {
             maybeCreate(BuildTypes.RELEASE).apply {
-                storeFile = file(System.getenv("KEYSTORE_FILE_PATH_RELEASE"))
+                val tmpFilePath = System.getProperty("user.home") + "/work/_temp/keystore/"
+                val allFilesFromDir = File(tmpFilePath).listFiles()
+
+                if (allFilesFromDir != null) {
+                    val keystoreFile = allFilesFromDir.first()
+                    val newFilePath = Paths.get("keystore/wiretest.jks")
+                    val newFile = newFilePath.toFile()
+                    keystoreFile?.renameTo(newFile)
+                }
+                storeFile = file("keystore/wiretest.jks")
                 storePassword = System.getenv("KEYSTOREPWD_RELEASE")
                 keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
                 keyPassword = System.getenv("KEYPWD_RELEASE")
