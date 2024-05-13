@@ -31,11 +31,12 @@ jobs:
           encodedString: ${{ secrets.KEYSTORE }}
       - name: Make gradlew executable
         run: chmod +x ./gradlew
-      - name: Upload
-        uses: actions/upload-artifact@v2
-        with:
-          name: Build Artifacts
-          path: app/build/outputs
+      - name: build prod
+        run: ./gradlew app:bundleRelease
+        env:
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
 #      - name: Build beta flavour
 #        env:
 #          GITHUB_USER: ${{ github.actor }}
