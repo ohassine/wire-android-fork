@@ -24,7 +24,6 @@ jobs:
           distribution: 'temurin'
           cache: gradle
       - name: Build beta flavour
-        if: ${{ inputs.flavour == 'beta-debug' }}
         env:
           GITHUB_USER: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
