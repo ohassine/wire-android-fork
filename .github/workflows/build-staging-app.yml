@@ -18,7 +18,7 @@ jobs:
           submodules: recursive # Needed in order to fetch Kalium sources for building
           fetch-depth: 0
       - name: Set up JDK 17
-        uses: ubuntu/setup-java@v4
+        uses: actions/setup-java@v2
         with:
           java-version: '17'
           distribution: 'temurin'
