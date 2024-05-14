@@ -35,7 +35,7 @@ jobs:
         uses: timheuer/base64-to-file@v1
         with:
           fileName: 'keystore/wiretest.jks'
-          encodedString: ${{ secrets.$KEYSTORE_ENCODED }}
+          encodedString: ${{ secrets.KEYSTORE_ENCODED }}
       - name: Make gradlew executable
         run: chmod +x ./gradlew
       - name: build prod
