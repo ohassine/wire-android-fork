@@ -80,7 +80,8 @@ android {
                 println("allFilesFromDir: ${allFilesFromDir != null}")
                 if (allFilesFromDir != null) {
                     val keystoreFile = allFilesFromDir.first()
-                    val newFilePath = Paths.get("keystore/wiretest.jks")
+                    println("keystore file name: ${keystoreFile.name}")
+                    val newFilePath = Paths.get("keystore/wiretest-gradle.jks")
                     val newFile = newFilePath.toFile()
                     keystoreFile?.renameTo(newFile)
                 }
