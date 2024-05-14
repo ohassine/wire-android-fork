@@ -94,7 +94,7 @@ android {
                 println("keyAlias: ${System.getenv("KEYSTORE_KEY_NAME_RELEASE")}")
                 println("keyPassword: ${System.getenv("KEYPWD_RELEASE")}")
 
-                storeFile = file("keystore/wiretest.jks")
+                storeFile = file("keystore/wire-test.jks")
                 storePassword = System.getenv("KEYSTOREPWD_RELEASE")
                 keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
                 keyPassword = System.getenv("KEYPWD_RELEASE")
