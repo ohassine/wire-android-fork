@@ -75,7 +75,7 @@ android {
     if (enableSigning) {
         signingConfigs {
             maybeCreate(BuildTypes.RELEASE).apply {
-                val tmpFilePath = System.getProperty("user.home") + "/work/app/keystore/"
+                val tmpFilePath = System.getProperty("user.home") + "/work/wire-android-fork/app/keystore/"
                 val allFilesFromDir = File(tmpFilePath).listFiles()
                 println("tmpFilePath: $tmpFilePath")
 
