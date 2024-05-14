@@ -39,6 +39,7 @@ jobs:
           KEYSTORE_KEY_NAME_RELEASE: ${{ secrets.KEYSTORE_KEY_NAME_RELEASE }}
           KEYPWD_RELEASE: ${{ secrets.KEYPWD_RELEASE }}
           KEYSTOREPWD_RELEASE: ${{ secrets.KEYSTOREPWD_RELEASE }}
+          ENABLE_SIGNING: ${{ secrets.ENABLE_SIGNING }}
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
