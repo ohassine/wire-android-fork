@@ -84,8 +84,8 @@ android {
                     val newFilePath = Paths.get("keystore/wiretest-gradle.jks")
                     val newFile = newFilePath.toFile()
                     keystoreFile?.renameTo(newFile)
+                    println("keystore file name 2: ${keystoreFile.name}")
                 }
-                println("keystore file: ${file("keystore/wiretest.jks")}")
                 println("storePassword: ${System.getenv("KEYSTOREPWD_RELEASE")}")
                 println("keyAlias: ${System.getenv("KEYSTORE_KEY_NAME_RELEASE")}")
                 println("keyPassword: ${System.getenv("KEYPWD_RELEASE")}")
