@@ -75,7 +75,7 @@ android {
     if (enableSigning) {
         signingConfigs {
             maybeCreate(BuildTypes.RELEASE).apply {
-                val tmpFilePath = System.getProperty("user.home") + "/work/wire-android-fork/app/keystore/"
+                val tmpFilePath = System.getProperty("user.home") + "/work/app/keystore/"
                 val allFilesFromDir = File(tmpFilePath).listFiles()
                 println("allFilesFromDir: ${allFilesFromDir != null}")
                 if (allFilesFromDir != null) {
@@ -86,7 +86,7 @@ android {
                     println("keystore file canonicalPath: ${keystoreFile.canonicalPath}")
                     println("keystore file totalSpace: ${keystoreFile.totalSpace}")
 
-                    val newFilePath = Paths.get("keystore/wiretest-gradle.jks")
+                    val newFilePath = Paths.get("keystore/wiretest.jks")
                     val newFile = newFilePath.toFile()
                     keystoreFile?.renameTo(newFile)
                 }
