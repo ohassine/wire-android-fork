@@ -75,8 +75,10 @@ android {
     if (enableSigning) {
         signingConfigs {
             maybeCreate(BuildTypes.RELEASE).apply {
-                val tmpFilePath = System.getProperty("user.home") + "/work/check/app/keystore/"
+                val tmpFilePath = System.getProperty("user.home") + "/work/app/keystore/"
                 val allFilesFromDir = File(tmpFilePath).listFiles()
+                println("tmpFilePath: $tmpFilePath")
+
                 println("allFilesFromDir: ${allFilesFromDir != null}")
                 if (allFilesFromDir != null) {
                     val keystoreFile = allFilesFromDir.first()
@@ -94,7 +96,7 @@ android {
                 println("keyAlias: ${System.getenv("KEYSTORE_KEY_NAME_RELEASE")}")
                 println("keyPassword: ${System.getenv("KEYPWD_RELEASE")}")
 
-                storeFile = file("keystore/wire-test.jks")
+                storeFile = file("keystore/wiretest.jks")
                 storePassword = System.getenv("KEYSTOREPWD_RELEASE")
                 keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
                 keyPassword = System.getenv("KEYPWD_RELEASE")
