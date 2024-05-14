@@ -96,27 +96,27 @@ android {
             }
             maybeCreate(BuildTypes.DEBUG).apply {
                 storeFile = file(System.getenv("KEYSTORE_FILE_PATH_DEBUG"))
-                storePassword = System.getenv("KEYSTOREPWD_DEBUG")
-                keyAlias = System.getenv("KEYSTORE_KEY_NAME_DEBUG")
-                keyPassword = System.getenv("KEYPWD_DEBUG")
+                storePassword = System.getenv("KEYSTOREPWD_RELEASE")
+                keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
+                keyPassword = System.getenv("KEYPWD_RELEASE")
             }
             maybeCreate(BuildTypes.COMPAT).apply {
-                storeFile = file(System.getenv("KEYSTORE_FILE_PATH_COMPAT"))
-                storePassword = System.getenv("KEYSTOREPWD_COMPAT")
-                keyAlias = System.getenv("KEYSTORE_KEY_NAME_COMPAT")
-                keyPassword = System.getenv("KEYPWD_COMPAT")
+                storeFile = file(System.getenv("KEYSTORE_FILE_PATH_DEBUG"))
+                storePassword = System.getenv("KEYSTOREPWD_RELEASE")
+                keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
+                keyPassword = System.getenv("KEYPWD_RELEASE")
             }
             maybeCreate(BuildTypes.COMPAT_RELEASE).apply {
-                storeFile = file(System.getenv("KEYSTORE_FILE_PATH_COMPAT_RELEASE"))
-                storePassword = System.getenv("KEYSTOREPWD_COMPAT_RELEASE")
-                keyAlias = System.getenv("KEYSTORE_KEY_NAME_COMPAT_RELEASE")
-                keyPassword = System.getenv("KEYPWD_COMPAT_RELEASE")
+                storeFile = file(System.getenv("KEYSTORE_FILE_PATH_DEBUG"))
+                storePassword = System.getenv("KEYSTOREPWD_RELEASE")
+                keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
+                keyPassword = System.getenv("KEYPWD_RELEASE")
             }
             maybeCreate(BuildTypes.BENCHMARK).apply {
                 storeFile = file(System.getenv("KEYSTORE_FILE_PATH_DEBUG"))
-                storePassword = System.getenv("KEYSTOREPWD_DEBUG")
-                keyAlias = System.getenv("KEYSTORE_KEY_NAME_DEBUG")
-                keyPassword = System.getenv("KEYPWD_DEBUG")
+                storePassword = System.getenv("KEYSTOREPWD_RELEASE")
+                keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
+                keyPassword = System.getenv("KEYPWD_RELEASE")
             }
         }
 //    }
