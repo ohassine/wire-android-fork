@@ -26,7 +26,7 @@ jobs:
       - name: Decode Keystore
         env:
           KEYSTORE_ENCODED: ${{ secrets.KEYSTORE_ENCODED }}
-        run: |
+        run:
           TMP_KEYSTORE_FILE_PATH="${RUNNER_TEMP}"/keystore
           mkdir "${TMP_KEYSTORE_FILE_PATH}"
           echo $KEYSTORE_ENCODED | base64 -di > "${TMP_KEYSTORE_FILE_PATH}"/wiretest.jks
@@ -45,10 +45,6 @@ jobs:
         with:
           name: Build Artifacts
           path: app/build/outputs/
-      - name: Remove all decrypted files
-        if: always()
-        run: rm rkeystore_destination_path keystore_destination-properties_path github-properties_path
-
 #      - name: Build beta flavour
 #        env:
 #          GITHUB_USER: ${{ github.actor }}
