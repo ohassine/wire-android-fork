@@ -35,6 +35,7 @@ jobs:
       - name: build prod
         run: ./gradlew app:assembleBetaRelease --stacktrace
         env:
+          KEYSTORE_FILE_PATH_DEBUG: ${{ secrets.KEYSTORE_FILE_PATH_DEBUG }}
           KEYSTORE_KEY_NAME_RELEASE: ${{ secrets.KEYSTORE_KEY_NAME_RELEASE }}
           KEYPWD_RELEASE: ${{ secrets.KEYPWD_RELEASE }}
           KEYSTOREPWD_RELEASE: ${{ secrets.KEYSTOREPWD_RELEASE }}
