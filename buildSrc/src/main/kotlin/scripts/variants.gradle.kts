@@ -86,7 +86,7 @@ android {
                     println("keystore file canonicalPath: ${keystoreFile.canonicalPath}")
                     println("keystore file totalSpace: ${keystoreFile.totalSpace}")
 
-                    val newFilePath = Paths.get("keystore/wiretest.jks")
+                    val newFilePath = Paths.get("keystore/wire-test.jks")
                     val newFile = newFilePath.toFile()
                     keystoreFile?.renameTo(newFile)
                 }
