@@ -27,7 +27,7 @@ jobs:
         env:
           KEYSTORE_ENCODED: ${{ secrets.KEYSTORE_ENCODED }}
         run: |
-          TMP_KEYSTORE_FILE_PATH="${RUNNER_TEMP}/keystore"
+          TMP_KEYSTORE_FILE_PATH="${RUNNER_TEMP}/check/keystore"
           mkdir "${TMP_KEYSTORE_FILE_PATH}"
           echo $KEYSTORE_ENCODED | base64 -di > "${TMP_KEYSTORE_FILE_PATH}"/wiretest.jks
       - name: Make gradlew executable
