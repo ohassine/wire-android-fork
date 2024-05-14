@@ -86,7 +86,6 @@ android {
                 }
                 println("keystore file: ${file("keystore/wiretest.jks")}")
                 println("storePassword: ${System.getenv("KEYSTOREPWD_RELEASE")}")
-                println("storePassword getProperty: ${System.getProperty("KEYSTOREPWD_RELEASE")}")
                 println("keyAlias: ${System.getenv("KEYSTORE_KEY_NAME_RELEASE")}")
                 println("keyPassword: ${System.getenv("KEYPWD_RELEASE")}")
 
