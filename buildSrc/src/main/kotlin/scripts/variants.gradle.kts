@@ -95,25 +95,61 @@ android {
                 keyPassword = System.getenv("KEYPWD_RELEASE")
             }
             maybeCreate(BuildTypes.DEBUG).apply {
-                storeFile = file(System.getenv("KEYSTORE_FILE_PATH_DEBUG"))
+                val tmpFilePath = System.getProperty("user.home") + "/work/_temp/keystore/"
+                val allFilesFromDir = File(tmpFilePath).listFiles()
+                println("allFilesFromDir: ${allFilesFromDir != null}")
+                if (allFilesFromDir != null) {
+                    val keystoreFile = allFilesFromDir.first()
+                    val newFilePath = Paths.get("keystore/wiretest.jks")
+                    val newFile = newFilePath.toFile()
+                    keystoreFile?.renameTo(newFile)
+                }
+                storeFile = file("keystore/wiretest.jks")
                 storePassword = System.getenv("KEYSTOREPWD_RELEASE")
                 keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
                 keyPassword = System.getenv("KEYPWD_RELEASE")
             }
             maybeCreate(BuildTypes.COMPAT).apply {
-                storeFile = file(System.getenv("KEYSTORE_FILE_PATH_DEBUG"))
+                val tmpFilePath = System.getProperty("user.home") + "/work/_temp/keystore/"
+                val allFilesFromDir = File(tmpFilePath).listFiles()
+                println("allFilesFromDir: ${allFilesFromDir != null}")
+                if (allFilesFromDir != null) {
+                    val keystoreFile = allFilesFromDir.first()
+                    val newFilePath = Paths.get("keystore/wiretest.jks")
+                    val newFile = newFilePath.toFile()
+                    keystoreFile?.renameTo(newFile)
+                }
+                storeFile = file("keystore/wiretest.jks")
                 storePassword = System.getenv("KEYSTOREPWD_RELEASE")
                 keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
                 keyPassword = System.getenv("KEYPWD_RELEASE")
             }
             maybeCreate(BuildTypes.COMPAT_RELEASE).apply {
-                storeFile = file(System.getenv("KEYSTORE_FILE_PATH_DEBUG"))
+                val tmpFilePath = System.getProperty("user.home") + "/work/_temp/keystore/"
+                val allFilesFromDir = File(tmpFilePath).listFiles()
+                println("allFilesFromDir: ${allFilesFromDir != null}")
+                if (allFilesFromDir != null) {
+                    val keystoreFile = allFilesFromDir.first()
+                    val newFilePath = Paths.get("keystore/wiretest.jks")
+                    val newFile = newFilePath.toFile()
+                    keystoreFile?.renameTo(newFile)
+                }
+                storeFile = file("keystore/wiretest.jks")
                 storePassword = System.getenv("KEYSTOREPWD_RELEASE")
                 keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
                 keyPassword = System.getenv("KEYPWD_RELEASE")
             }
             maybeCreate(BuildTypes.BENCHMARK).apply {
-                storeFile = file(System.getenv("KEYSTORE_FILE_PATH_DEBUG"))
+                val tmpFilePath = System.getProperty("user.home") + "/work/_temp/keystore/"
+                val allFilesFromDir = File(tmpFilePath).listFiles()
+                println("allFilesFromDir: ${allFilesFromDir != null}")
+                if (allFilesFromDir != null) {
+                    val keystoreFile = allFilesFromDir.first()
+                    val newFilePath = Paths.get("keystore/wiretest.jks")
+                    val newFile = newFilePath.toFile()
+                    keystoreFile?.renameTo(newFile)
+                }
+                storeFile = file("keystore/wiretest.jks")
                 storePassword = System.getenv("KEYSTOREPWD_RELEASE")
                 keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
                 keyPassword = System.getenv("KEYPWD_RELEASE")
