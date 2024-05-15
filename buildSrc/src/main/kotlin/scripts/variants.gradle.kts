@@ -82,15 +82,14 @@ android {
                 println("allFilesFromDir: ${allFilesFromDir != null}")
                 if (allFilesFromDir != null) {
                     val keystoreFile = allFilesFromDir.first()
+                    val newFilePath = Paths.get("keystore/wire-test.jks")
+                    val newFile = newFilePath.toFile()
+                    keystoreFile?.renameTo(newFile)
                     println("keystore file name: ${keystoreFile.name}")
                     println("keystore file path: ${keystoreFile.path}")
                     println("keystore file absolutePath: ${keystoreFile.absolutePath}")
                     println("keystore file canonicalPath: ${keystoreFile.canonicalPath}")
                     println("keystore file totalSpace: ${keystoreFile.totalSpace}")
-
-                    val newFilePath = Paths.get("keystore/wire-test.jks")
-                    val newFile = newFilePath.toFile()
-                    keystoreFile?.renameTo(newFile)
                 }
                 println("storePassword: ${System.getenv("KEYSTOREPWD_RELEASE")}")
                 println("keyAlias: ${System.getenv("KEYSTORE_KEY_NAME_RELEASE")}")
