@@ -44,19 +44,3 @@ jobs:
         with:
           name: Build Artifacts
           path: app/build/outputs/
-#      - name: Build beta flavour
-#        env:
-#          GITHUB_USER: ${{ github.actor }}
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        run: |
-#          ./gradlew assembleBetaDebug -p ./ --no-daemon
-#          cp app/build/outputs/apk/beta/debug/com.wire.*.apk wire-android-${{inputs.flavour}}-pr-${{ github.event.pull_request.number }}.apk
-#      - name: Build dev flavour
-#        if: ${{ inputs.flavour == 'dev-debug' }}
-#        env:
-#          GITHUB_USER: ${{ github.actor }}
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        run: |
-#          ./gradlew assembleDevDebug -p ./ --no-daemon
-#          cp app/build/outputs/apk/dev/debug/com.wire.*.apk wire-android-${{inputs.flavour}}-pr-${{ github.event.pull_request.number }}.apk
-#
