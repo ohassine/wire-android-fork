@@ -93,7 +93,7 @@ android {
                     println("newFilePath absolutePath: ${newFile.absolutePath}")
 //                    keystoreFile?.renameTo(newFile)
 //                    keystoreFile?.copyTo(File("keystore/wiretest.jks"), true)
-                    Files.move(keystoreFile.toPath(), newFile.toPath(), StandardCopyOption.REPLACE_EXISTING)
+//                    Files.move(keystoreFile.toPath(), newFile.toPath(), StandardCopyOption.REPLACE_EXISTING)
 
                     println("keystore file name: ${keystoreFile.name}")
                     println("keystore file path: ${keystoreFile.path}")
