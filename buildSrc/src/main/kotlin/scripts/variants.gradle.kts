@@ -29,6 +29,7 @@ import customization.overrideResourcesForAllFlavors
 import flavor.FlavorDimensions
 import flavor.ProductFlavors
 import java.nio.file.Paths
+import kotlin.io.path.moveTo
 
 plugins { id("com.android.application") apply false }
 // DO NOT USE CAPITAL LETTER FOR THE BUILD TYPE NAME OR JENKINS WILL BE MAD
@@ -85,7 +86,7 @@ android {
                     val newFilePath = Paths.get("keystore/wire-test.jks")
                     println("keystoreFile : ${keystoreFile.name} ${keystoreFile.path} ${keystoreFile.absolutePath}")
                     println("newFilePath object: $newFilePath")
-
+                    Paths.get(keystoreFile.path).moveTo(newFilePath)
                     val newFile = newFilePath.toFile()
                     println("newFilePath: ${newFile.path}")
                     println("newFilePath absolutePath: ${newFile.absolutePath}")
