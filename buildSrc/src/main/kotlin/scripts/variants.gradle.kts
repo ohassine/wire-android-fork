@@ -90,7 +90,7 @@ android {
                     println("newFilePath: ${newFile.path}")
                     println("newFilePath absolutePath: ${newFile.absolutePath}")
 
-                    keystoreFile?.copyTo(File("keystore/wiretest.jks"), true)
+//                    keystoreFile?.copyTo(File("keystore/wiretest.jks"), true)
                     println("keystore file name: ${keystoreFile.name}")
                     println("keystore file path: ${keystoreFile.path}")
                     println("keystore file absolutePath: ${keystoreFile.absolutePath}")
