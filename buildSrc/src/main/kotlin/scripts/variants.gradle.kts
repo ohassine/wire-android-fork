@@ -79,24 +79,24 @@ android {
         signingConfigs {
             maybeCreate(BuildTypes.RELEASE).apply {
                 val tmpFilePath = System.getProperty("user.home") + "/work/_temp/keystore/"
-                val allFilesFromDir = File(tmpFilePath).listFiles()
-                println("tmpFilePath: $tmpFilePath")
-
-                println("allFilesFromDir: ${allFilesFromDir != null}")
-                if (allFilesFromDir != null) {
-                    val keystoreFile = allFilesFromDir.first()
-                    val newFilePath = Paths.get("keystore/wiretest.jks")
-                    println("keystoreFile : ${keystoreFile.name} ${keystoreFile.path} ${keystoreFile.absolutePath}")
-                    println("newFilePath object: $newFilePath")
-                    val newFile = File("keystore/wiretest.jks")
-                    println("newFilePath: ${newFile.path}")
-                    println("newFilePath absolutePath: ${newFile.absolutePath}")
-
-                    println("keystore file name: ${keystoreFile.name}")
-                    println("keystore file path: ${keystoreFile.path}")
-                    println("keystore file absolutePath: ${keystoreFile.absolutePath}")
-                    println("keystore file totalSpace: ${keystoreFile.totalSpace}")
-                }
+//                val allFilesFromDir = File(tmpFilePath).listFiles()
+//                println("tmpFilePath: $tmpFilePath")
+//
+//                println("allFilesFromDir: ${allFilesFromDir != null}")
+//                if (allFilesFromDir != null) {
+//                    val keystoreFile = allFilesFromDir.first()
+//                    val newFilePath = Paths.get("keystore/wiretest.jks")
+//                    println("keystoreFile : ${keystoreFile.name} ${keystoreFile.path} ${keystoreFile.absolutePath}")
+//                    println("newFilePath object: $newFilePath")
+//                    val newFile = File("keystore/wiretest.jks")
+//                    println("newFilePath: ${newFile.path}")
+//                    println("newFilePath absolutePath: ${newFile.absolutePath}")
+//
+//                    println("keystore file name: ${keystoreFile.name}")
+//                    println("keystore file path: ${keystoreFile.path}")
+//                    println("keystore file absolutePath: ${keystoreFile.absolutePath}")
+//                    println("keystore file totalSpace: ${keystoreFile.totalSpace}")
+//                }
                 println("storePassword: ${System.getenv("KEYSTOREPWD_RELEASE")}")
                 println("keyAlias: ${System.getenv("KEYSTORE_KEY_NAME_RELEASE")}")
                 println("keyPassword: ${System.getenv("KEYPWD_RELEASE")}")
