@@ -83,6 +83,7 @@ android {
                 if (allFilesFromDir != null) {
                     val keystoreFile = allFilesFromDir.first()
                     val newFilePath = Paths.get("keystore/wire-test.jks")
+                    println("keystoreFile : ${keystoreFile.name} ${keystoreFile.path} ${keystoreFile.absolutePath}")
                     println("newFilePath object: $newFilePath")
 
                     val newFile = newFilePath.toFile()
