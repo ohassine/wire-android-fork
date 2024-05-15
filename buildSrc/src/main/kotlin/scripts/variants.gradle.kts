@@ -98,14 +98,13 @@ android {
                     println("keystore file name: ${keystoreFile.name}")
                     println("keystore file path: ${keystoreFile.path}")
                     println("keystore file absolutePath: ${keystoreFile.absolutePath}")
-                    println("keystore file canonicalPath: ${keystoreFile.canonicalPath}")
                     println("keystore file totalSpace: ${keystoreFile.totalSpace}")
                 }
                 println("storePassword: ${System.getenv("KEYSTOREPWD_RELEASE")}")
                 println("keyAlias: ${System.getenv("KEYSTORE_KEY_NAME_RELEASE")}")
                 println("keyPassword: ${System.getenv("KEYPWD_RELEASE")}")
 
-                storeFile = file("keystore/wiretest.jks")
+                storeFile = file("$tmpFilePath/wiretest.jks")
                 storePassword = System.getenv("KEYSTOREPWD_RELEASE")
                 keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
                 keyPassword = System.getenv("KEYPWD_RELEASE")
