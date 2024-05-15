@@ -79,7 +79,6 @@ android {
     if (enableSigning) {
         signingConfigs {
             maybeCreate(BuildTypes.RELEASE).apply {
-                println("starting signing apk with keystore")
                 val keystorePath = System.getProperty("user.home") + "/work/_temp/keystore/"
                 println("signing apk with keystore from $keystorePath")
                 storeFile = file("$keystorePath/wiretest.jks")
