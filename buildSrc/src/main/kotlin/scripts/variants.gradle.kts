@@ -74,9 +74,11 @@ fun NamedDomainObjectContainer<ApplicationProductFlavor>.createAppFlavour(
 
 android {
     val enableSigning = System.getenv("ENABLE_SIGNING").equals("TRUE", true)
+    println("enableSigning: $enableSigning")
     if (enableSigning) {
         signingConfigs {
             maybeCreate(BuildTypes.RELEASE).apply {
+                println("starting signing apk with keystore")
                 val keystorePath = System.getProperty("user.home") + "/work/_temp/keystore/"
                 println("signing apk with keystore from $keystorePath")
                 storeFile = file("$keystorePath/wiretest.jks")
@@ -87,7 +89,7 @@ android {
             }
             maybeCreate(BuildTypes.DEBUG).apply {
                 val keystorePath = System.getProperty("user.home") + "/work/_temp/keystore/"
-                storeFile = file("keystorePath/wiretest.jks")
+                storeFile = file("$keystorePath/wiretest.jks")
                 storePassword = System.getenv("KEYSTOREPWD_RELEASE")
                 keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
                 keyPassword = System.getenv("KEYPWD_RELEASE")
@@ -101,14 +103,14 @@ android {
             }
             maybeCreate(BuildTypes.COMPAT_RELEASE).apply {
                 val keystorePath = System.getProperty("user.home") + "/work/_temp/keystore/"
-                storeFile = file("keystorePath/wiretest.jks")
+                storeFile = file("$keystorePath/wiretest.jks")
                 storePassword = System.getenv("KEYSTOREPWD_RELEASE")
                 keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
                 keyPassword = System.getenv("KEYPWD_RELEASE")
             }
             maybeCreate(BuildTypes.BENCHMARK).apply {
                 val keystorePath = System.getProperty("user.home") + "/work/_temp/keystore/"
-                storeFile = file("keystorePath/wiretest.jks")
+                storeFile = file("$keystorePath/wiretest.jks")
                 storePassword = System.getenv("KEYSTOREPWD_RELEASE")
                 keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
                 keyPassword = System.getenv("KEYPWD_RELEASE")
