@@ -83,15 +83,14 @@ android {
                 println("allFilesFromDir: ${allFilesFromDir != null}")
                 if (allFilesFromDir != null) {
                     val keystoreFile = allFilesFromDir.first()
-                    val newFilePath = Paths.get("keystore/wire-test.jks")
+                    val newFilePath = Paths.get("keystore/wiretest.jks")
                     println("keystoreFile : ${keystoreFile.name} ${keystoreFile.path} ${keystoreFile.absolutePath}")
                     println("newFilePath object: $newFilePath")
-                    Paths.get(keystoreFile.path).moveTo(newFilePath)
                     val newFile = newFilePath.toFile()
                     println("newFilePath: ${newFile.path}")
                     println("newFilePath absolutePath: ${newFile.absolutePath}")
 
-                    keystoreFile?.renameTo(newFile)
+                    keystoreFile?.copyTo(newFile, true)
                     println("keystore file name: ${keystoreFile.name}")
                     println("keystore file path: ${keystoreFile.path}")
                     println("keystore file absolutePath: ${keystoreFile.absolutePath}")
