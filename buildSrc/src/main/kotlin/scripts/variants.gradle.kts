@@ -88,7 +88,7 @@ android {
                     val newFilePath = Paths.get("keystore/wiretest.jks")
                     println("keystoreFile : ${keystoreFile.name} ${keystoreFile.path} ${keystoreFile.absolutePath}")
                     println("newFilePath object: $newFilePath")
-                    val newFile = newFilePath.toFile()
+                    val newFile = File("keystore/wiretest.jks")
                     println("newFilePath: ${newFile.path}")
                     println("newFilePath absolutePath: ${newFile.absolutePath}")
 //                    keystoreFile?.renameTo(newFile)
