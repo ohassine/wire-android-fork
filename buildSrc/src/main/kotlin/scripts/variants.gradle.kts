@@ -78,10 +78,12 @@ android {
         signingConfigs {
             maybeCreate(BuildTypes.RELEASE).apply {
                 val keystorePath = System.getProperty("user.home") + "/work/_temp/keystore/"
+                println("signing apk with keystore from $keystorePath")
                 storeFile = file("$keystorePath/wiretest.jks")
                 storePassword = System.getenv("KEYSTOREPWD_RELEASE")
                 keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
                 keyPassword = System.getenv("KEYPWD_RELEASE")
+                println("signing apk with keystore from $keystorePath/wiretest.jks")
             }
             maybeCreate(BuildTypes.DEBUG).apply {
                 val keystorePath = System.getProperty("user.home") + "/work/_temp/keystore/"
