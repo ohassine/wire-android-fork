@@ -75,6 +75,7 @@ fun NamedDomainObjectContainer<ApplicationProductFlavor>.createAppFlavour(
 android {
     val enableSigning = System.getenv("ENABLE_SIGNING").equals("TRUE", true)
     println("enableSigning: $enableSigning")
+
     if (enableSigning) {
         signingConfigs {
             maybeCreate(BuildTypes.RELEASE).apply {
