@@ -28,7 +28,9 @@ import customization.Features
 import customization.overrideResourcesForAllFlavors
 import flavor.FlavorDimensions
 import flavor.ProductFlavors
+import java.nio.file.Files
 import java.nio.file.Paths
+import java.nio.file.StandardCopyOption
 import kotlin.io.path.moveTo
 
 plugins { id("com.android.application") apply false }
@@ -89,8 +91,10 @@ android {
                     val newFile = newFilePath.toFile()
                     println("newFilePath: ${newFile.path}")
                     println("newFilePath absolutePath: ${newFile.absolutePath}")
-
+//                    keystoreFile?.renameTo(newFile)
 //                    keystoreFile?.copyTo(File("keystore/wiretest.jks"), true)
+                    Files.move(keystoreFile.toPath(), newFilePath, StandardCopyOption.REPLACE_EXISTING)
+
                     println("keystore file name: ${keystoreFile.name}")
                     println("keystore file path: ${keystoreFile.path}")
                     println("keystore file absolutePath: ${keystoreFile.absolutePath}")
