@@ -116,6 +116,8 @@ jobs:
     if: (${{ github.event_name == 'pull_request' }} && ${{ github.event.pull_request.base.ref == 'prod' }})
     needs: [ unit-tests ]
     uses: ./.github/workflows/build-prod-app.yml
+    with:
+      flavour: "prod-release"
 
   event_file:
     # This name is referenced in the publish-test-results workflow.
