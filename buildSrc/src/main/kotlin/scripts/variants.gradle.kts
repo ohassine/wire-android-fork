@@ -96,7 +96,7 @@ android {
             }
             maybeCreate(BuildTypes.COMPAT).apply {
                 val keystorePath = System.getProperty("user.home") + "/work/_temp/keystore/"
-                storeFile = file("keystorePath/wiretest.jks")
+                storeFile = file("$keystorePath/wiretest.jks")
                 storePassword = System.getenv("KEYSTOREPWD_RELEASE")
                 keyAlias = System.getenv("KEYSTORE_KEY_NAME_RELEASE")
                 keyPassword = System.getenv("KEYPWD_RELEASE")
