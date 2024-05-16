@@ -3,17 +3,11 @@ name: "Run Unit Tests"
 on:
   push:
     branches:
-      - prod
       - main
-      - internal
-      - develop
   merge_group:
   pull_request:
     branches:
-      - prod
       - main
-      - internal
-      - develop
     types: [ opened, synchronize, reopened ] # Don't rerun on `edited` to save time
   workflow_call:
 
