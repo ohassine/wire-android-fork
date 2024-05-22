@@ -3,11 +3,13 @@ name: "Build beta app"
 on:
   push:
     branches:
-      - '**'
+      - main
+      - release/candidate
   merge_group:
   pull_request:
     branches:
       - main
+      - release/candidate
     types: [ opened, synchronize ]
   workflow_call:
 
@@ -48,6 +50,17 @@ jobs:
       - name: build prod
         run:
           ./gradlew app:assembleBetaRelease -p ./ --no-daemon
+          ./gradlew app:bundleBetaRelease -p ./ --no-daemon
+        env:
+          KEYSTORE_KEY_NAME_RELEASE: ${{ secrets.KEYSTORE_KEY_NAME_RELEASE }}
+          KEYPWD_RELEASE: ${{ secrets.KEYPWD_RELEASE }}
+          KEYSTOREPWD_RELEASE: ${{ secrets.KEYSTOREPWD_RELEASE }}
+          ENABLE_SIGNING: ${{ secrets.ENABLE_SIGNING }}
+      - name: Build beta flavour
+        if: (${{ github.event_name == 'pull_request' }} && ${{ github.event.pull_request.base.ref == 'prod' }})
+        run:
+          ./gradlew app:assembleBetaRelease -p ./ --no-daemon
+          ./gradlew app:bundleBetaRelease -p ./ --no-daemon
         env:
           KEYSTORE_KEY_NAME_RELEASE: ${{ secrets.KEYSTORE_KEY_NAME_RELEASE }}
           KEYPWD_RELEASE: ${{ secrets.KEYPWD_RELEASE }}
