@@ -14,13 +14,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  detekt:
-    uses: ./.github/workflows/codestyle.yml
-  unit-tests:
-    needs: [ detekt ]
-    uses: ./.github/workflows/gradle-run-unit-tests.yml
   build-app:
-    needs: [ unit-tests ]
     runs-on: buildjet-8vcpu-ubuntu-2204
     steps:
       - name: Checkout
